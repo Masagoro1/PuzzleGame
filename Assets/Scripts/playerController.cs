@@ -300,7 +300,7 @@ public class playerController : MonoBehaviour
     {
         if (other.tag == "endLevel")
         {
-            SceneManager.LoadScene("level2", LoadSceneMode.Additive);
+            SceneManager.LoadScene("level2");
         }
     }
 
@@ -340,7 +340,7 @@ public class playerController : MonoBehaviour
             {
                 if (buttonsPressed == 4)
                 {
-                    SceneManager.LoadScene("mountain", LoadSceneMode.Additive);
+                    SceneManager.LoadScene("mountain");
                 }
             }
         }

@@ -32,12 +32,12 @@ public class Example : MonoBehaviour
 
     void level1Change()
     {
-        SceneManager.LoadScene("ColeScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("ColeScene");
     }
 
     void level2Change()
     {
-        SceneManager.LoadScene("level2", LoadSceneMode.Additive);
+        SceneManager.LoadScene("level2");
     }
 
 
