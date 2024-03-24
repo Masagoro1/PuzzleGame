@@ -58,7 +58,7 @@ public class playerController : MonoBehaviour
         startMarker = gameObject.transform.position;
         if (fracJourney < 1)
         {
-            fracJourney += Time.deltaTime;
+            fracJourney += Time.deltaTime * speed;
         }
 
         //check which camera is active
