@@ -7,6 +7,7 @@
 // Note that click means press down and then release.
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Example : MonoBehaviour
@@ -19,15 +20,30 @@ public class Example : MonoBehaviour
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
         level.onClick.AddListener(levelSelector);
         quit.onClick.AddListener(Quit);
-        level1.onClick.AddListener(Quit);
-        level2.onClick.AddListener(Quit);
-        level3.onClick.AddListener(Quit);
+        level1.onClick.AddListener(level1Change);
+        level2.onClick.AddListener(level2Change);
+        level3.onClick.AddListener(level3Change);
 
     }
 
     void Quit()
     {
         Application.Quit();
+    }
+
+    void level1Change()
+    {
+        SceneManager.LoadScene("level1", LoadSceneMode.Additive);
+    }
+
+    void level2Change()
+    {
+        SceneManager.LoadScene("level2", LoadSceneMode.Additive);
+    }
+
+    void level3Change()
+    {
+        SceneManager.LoadScene("level3", LoadSceneMode.Additive);
     }
 
     void levelSelector()
