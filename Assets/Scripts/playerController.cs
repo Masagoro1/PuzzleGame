@@ -308,7 +308,7 @@ public class playerController : MonoBehaviour
     {
         if (other.tag == "buttonStart")
         {
-            if (Input.GetKeyDown("f"))
+            if (Input.GetKey("f"))
             {
                 GameObject door = GameObject.Find("door");
                 Destroy(door);
@@ -316,7 +316,7 @@ public class playerController : MonoBehaviour
         }
         if (other.tag == "squareButton")
         {
-            if (Input.GetKeyDown("f"))
+            if (Input.GetKey("f"))
             {
                 if (buttonsPressed == 1)
                 {
@@ -326,7 +326,7 @@ public class playerController : MonoBehaviour
         }
         if (other.tag == "circleButton")
         {
-            if (Input.GetKeyDown("f"))
+            if (Input.GetKey("f"))
             {
                 if (buttonsPressed == 2)
                 {
@@ -336,7 +336,7 @@ public class playerController : MonoBehaviour
         }
         if (other.tag == "rectButton")
         {
-            if (Input.GetKeyDown("f"))
+            if (Input.GetKey("f"))
             {
                 if (buttonsPressed == 4)
                 {
@@ -346,7 +346,7 @@ public class playerController : MonoBehaviour
         }
         if (other.tag == "ovalButton")
         {
-            if (Input.GetKeyDown("f"))
+            if (Input.GetKey("f"))
             {
                 if (buttonsPressed == 3)
                 {

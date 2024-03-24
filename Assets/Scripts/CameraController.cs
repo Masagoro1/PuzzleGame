@@ -39,6 +39,8 @@ public class CameraController : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         currDir = direction.South;
+        lerpPos();
+        u = 1;
     }
 
     // Update is called once per frame
