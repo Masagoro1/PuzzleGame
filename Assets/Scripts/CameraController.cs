@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
     Transform player;
     Transform[] camPos;
     direction currDir = direction.North;
+    [SerializeField]
     direction currRot;
     Vector3 dest;
     [SerializeField]
@@ -225,19 +226,19 @@ public class CameraController : MonoBehaviour
         {
             if((currDir == direction.North || currDir == direction.South) || ((currRot == direction.North || currRot == direction.South) && (currDir == direction.Down)))
             {
-                transform.position = player.position + new Vector3(0, camDist * Mathf.Sin(w), camDist * Mathf.Cos(w));
+                transform.position = player.position + new Vector3(0, camDist * Mathf.Sin(w) + 1, camDist * Mathf.Cos(w));
             }
             else
             {
-                transform.position = player.position + new Vector3(camDist * Mathf.Cos(w), camDist * Mathf.Sin(w), 0);
+                transform.position = player.position + new Vector3(camDist * Mathf.Cos(w), camDist * Mathf.Sin(w) + 1, 0);
             }
         }
         else
         {
 
-            transform.position = player.position + new Vector3(camDist * Mathf.Cos(t), 0, camDist * Mathf.Sin(t));
+            transform.position = player.position + new Vector3(camDist * Mathf.Cos(t), 1, camDist * Mathf.Sin(t));
         }
-        if(transform.position == player.position + new Vector3(0, camDist, 0))
+        if(transform.position == player.position + new Vector3(0, camDist + 1, 0))
         {
             switch (currRot)
             {
@@ -258,7 +259,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            transform.LookAt(player);
+            transform.LookAt(new Vector3(player.position.x, player.position.y + 1, player.position.z));
         }
 
 

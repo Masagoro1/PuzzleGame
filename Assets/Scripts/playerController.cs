@@ -7,14 +7,15 @@ using UnityEngine.XR;
 
 public class playerController : MonoBehaviour
 {
-    public Vector3 startMarker = new Vector3(0,0,0);
-    public Vector3 endMarker = new Vector3(0, 0, 0);
-    public float speed = 0.05f;
+    public Vector3 startMarker = new Vector3(0,1,0);
+    public Vector3 endMarker = new Vector3(0, 1, 0);
+    LayerMask terrain;
+    public float speed = 0.25f;
     private float startTime;
     private float journeyLength;
     private bool canMove = true;
     float fracJourney = 0;
-
+    public bool foundWall;
     // Arya code
     private int buttonsPressed = 1;
 
@@ -39,18 +40,21 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        terrain = LayerMask.GetMask("Terrain");
         journeyLength = Vector3.Distance(startMarker, endMarker);
         currentDirection = direction.North;
+        transform.position = startMarker;
     }
 
     // Update is called once per frame
     void Update()
     {
+        foundWall = false;
         currentRotation = (direction)pubRot;
         currentDirection = (direction)pubDir;
         float distCovered = (Time.time - startTime) * speed;
         //float fracJourney = distCovered / journeyLength;
+        
         startMarker = gameObject.transform.position;
         if (fracJourney < 1)
         {
@@ -66,179 +70,188 @@ public class playerController : MonoBehaviour
             {
                 case direction.North:
                     currentDirection = direction.North;
-                    if (Input.GetKey("a"))
+                    if (Input.GetKeyDown("a"))
                     {
                         endMarker = gameObject.transform.position += Vector3.left;
                         // player moves -x
-                        // check for collisions
 
+                        // check for collision
+                        checkDest();
 
                     }
-                    else if (Input.GetKey("d"))
+                    else if (Input.GetKeyDown("d"))
                     {
                         // player moves +x
                         endMarker = gameObject.transform.position += Vector3.right;
-                        // check for collisions
 
+                        // check for collision
+                        checkDest();
                     }
                     break;
                 case direction.East:
                     currentDirection = direction.East;
-                    if (Input.GetKey("a"))
+                    if (Input.GetKeyDown("a"))
                     {
                         // player moves +z
                         endMarker = gameObject.transform.position += Vector3.forward;
-                        // check for collisions
+                        // check for collision
+                        checkDest();
 
 
                     }
-                    else if (Input.GetKey("d"))
+                    else if (Input.GetKeyDown("d"))
                     {
                         // player moves -z
                         endMarker = gameObject.transform.position += Vector3.back;
-                        // check for collision
 
+                        // check for collision
+                        checkDest();
                     }
                     break;
                 case direction.South:
                     currentDirection = direction.South;
-                    if (Input.GetKey("a"))
+                    if (Input.GetKeyDown("a"))
                     {
                         // player moves +x
                         endMarker = gameObject.transform.position += Vector3.right;
-                        // check for collisions
+                        // check for collision
+                        checkDest();
 
                     }
-                    else if (Input.GetKey("d"))
+                    else if (Input.GetKeyDown("d"))
                     {
                         // player moves -x
                         endMarker = gameObject.transform.position += Vector3.left;
                         // check for collision
+                        checkDest();
 
                     }
                     break;
                 case direction.West:
                     currentDirection = direction.West;
-                    if (Input.GetKey("a"))
+                    if (Input.GetKeyDown("a"))
                     {
                         // player moves -z
                         endMarker = gameObject.transform.position += Vector3.back;
                         // check for collision
-
+                        checkDest();
 
                     }
-                    else if (Input.GetKey("d"))
+                    else if (Input.GetKeyDown("d"))
                     {
                         // player moves +z
                         endMarker = gameObject.transform.position += Vector3.forward;
                         // check for collision
-
+                        checkDest();
                     }
                     break;
                 case direction.Down:
                     if (currentRotation == direction.North)
                     {
-                        if (Input.GetKey("w"))
+                        if (Input.GetKeyDown("w"))
                         {
                             endMarker = gameObject.transform.position += Vector3.forward;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("a"))
+                        else if (Input.GetKeyDown("a"))
                         {
                             endMarker = gameObject.transform.position += Vector3.left;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("s"))
+                        else if (Input.GetKeyDown("s"))
                         {
                             endMarker = gameObject.transform.position += Vector3.back;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("d"))
+                        else if (Input.GetKeyDown("d"))
                         {
                             endMarker = gameObject.transform.position += Vector3.right;
                             // check for collision
-
+                            checkDest();
                         }
                     }
                     else if (currentRotation == direction.East)
                     {
-                        if (Input.GetKey("w"))
+                        if (Input.GetKeyDown("w"))
                         {
                             endMarker = gameObject.transform.position += Vector3.right;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("a"))
+                        else if (Input.GetKeyDown("a"))
                         {
                             endMarker = gameObject.transform.position += Vector3.forward;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("s"))
+                        else if (Input.GetKeyDown("s"))
                         {
                             endMarker = gameObject.transform.position += Vector3.left;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("d"))
+                        else if (Input.GetKeyDown("d"))
                         {
                             endMarker = gameObject.transform.position += Vector3.back;
                             // check for collision
-
+                            checkDest();
                         }
                     }
                     else if (currentRotation == direction.South)
                     {
-                        if (Input.GetKey("w"))
+                        if (Input.GetKeyDown("w"))
                         {
                             endMarker = gameObject.transform.position += Vector3.back;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("a"))
+                        else if (Input.GetKeyDown("a"))
                         {
                             endMarker = gameObject.transform.position += Vector3.right;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("s"))
+                        else if (Input.GetKeyDown("s"))
                         {
                             endMarker = gameObject.transform.position += Vector3.forward;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("d"))
+                        else if (Input.GetKeyDown("d"))
                         {
                             endMarker = gameObject.transform.position += Vector3.left;
                             // check for collision
-
+                            checkDest();
                         }
                     }
                     else if (currentRotation == direction.West)
                     {
-                        if (Input.GetKey("w"))
+                        if (Input.GetKeyDown("w"))
                         {
                             endMarker = gameObject.transform.position += Vector3.left;
                             // check for collision
-
+                            checkDest();
                         }
-                        else if (Input.GetKey("a"))
+                        else if (Input.GetKeyDown("a"))
                         {
                             endMarker = gameObject.transform.position += Vector3.back;
                             // check for collision
+                            checkDest();
                         }
-                        else if (Input.GetKey("s"))
+                        else if (Input.GetKeyDown("s"))
                         {
                             endMarker = gameObject.transform.position += Vector3.right;
                             // check for collision
+                            checkDest();
                         }
-                        else if (Input.GetKey("d"))
+                        else if (Input.GetKeyDown("d"))
                         {
                             endMarker = gameObject.transform.position += Vector3.forward;
                             // check for collision
+                            checkDest();
                         }
                     }
 
@@ -250,19 +263,37 @@ public class playerController : MonoBehaviour
                 StartCoroutine(moveCD());
             }
         }
+
         
         transform.position = Vector3.Lerp(startMarker, endMarker, fracJourney);
-        
-        
+
+
+
 
     }
     IEnumerator moveCD()
     {
+        if(canMove)
+        {
+            canMove = false;
+            yield return new WaitForSeconds(0.2f);
+            canMove = true;
+        }
         
-        canMove = false;
-        Debug.Log(canMove);
-        yield return new WaitForSeconds(0.5f);
-        canMove = true;
+    }
+    void checkDest()
+    {
+        if (foundWall)
+        {
+            return;
+        }
+        //Debug.Log(Physics.CheckSphere(transform.position, 0.25f, 3));
+        if (Physics.CheckSphere(endMarker, 0.25f, terrain))
+        {
+            Debug.Log("test");
+            endMarker = startMarker;
+            foundWall = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -277,7 +308,7 @@ public class playerController : MonoBehaviour
     {
         if (other.tag == "buttonStart")
         {
-            if (Input.GetKey("f"))
+            if (Input.GetKeyDown("f"))
             {
                 GameObject door = GameObject.Find("door");
                 Destroy(door);
@@ -285,7 +316,7 @@ public class playerController : MonoBehaviour
         }
         if (other.tag == "squareButton")
         {
-            if (Input.GetKey("f"))
+            if (Input.GetKeyDown("f"))
             {
                 if (buttonsPressed == 1)
                 {
