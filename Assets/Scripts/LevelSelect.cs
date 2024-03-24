@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class Example : MonoBehaviour
 {
     //Make sure to attach these Buttons in the Inspector
-    public Button level, quit, level1, level2;
+    public Button level, quit, level1, level2, level3;
 
     void Start()
     {
@@ -21,6 +21,7 @@ public class Example : MonoBehaviour
         quit.onClick.AddListener(Quit);
         level1.onClick.AddListener(Quit);
         level2.onClick.AddListener(Quit);
+        level3.onClick.AddListener(Quit);
 
     }
 
@@ -34,5 +35,6 @@ public class Example : MonoBehaviour
         level.gameObject.SetActive(false);
         level1.gameObject.SetActive(true);
         level2.gameObject.SetActive(true);
+        level3.gameObject.SetActive(true);
     }
 }
