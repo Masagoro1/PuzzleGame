@@ -17,7 +17,7 @@ public class playerController : MonoBehaviour
     float fracJourney = 0;
     public bool foundWall;
     // Arya code
-    private int buttonsPressed = 1;
+    [SerializeField]private int buttonsPressed = 1;
 
     enum direction
     {
@@ -320,29 +320,38 @@ public class playerController : MonoBehaviour
             {
                 if (buttonsPressed == 1)
                 {
-                    buttonsPressed++;
+                    buttonsPressed = 2;
                 }
             }
         }
         if (other.tag == "circleButton")
         {
-            if (buttonsPressed == 2)
+            if (Input.GetKeyDown("f"))
             {
-                buttonsPressed++;
+                if (buttonsPressed == 2)
+                {
+                    buttonsPressed = 3;
+                }
             }
         }
         if (other.tag == "rectButton")
         {
-            if (buttonsPressed == 4)
+            if (Input.GetKeyDown("f"))
             {
-                SceneManager.LoadScene("level3", LoadSceneMode.Additive);
+                if (buttonsPressed == 4)
+                {
+                    SceneManager.LoadScene("level3", LoadSceneMode.Additive);
+                }
             }
         }
         if (other.tag == "ovalButton")
         {
-            if (buttonsPressed == 3)
+            if (Input.GetKeyDown("f"))
             {
-                buttonsPressed++;
+                if (buttonsPressed == 3)
+                {
+                    buttonsPressed = 4;
+                }
             }
         }
     }
