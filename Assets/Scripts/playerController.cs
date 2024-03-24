@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 
 public class playerController : MonoBehaviour
@@ -13,6 +14,9 @@ public class playerController : MonoBehaviour
     private float journeyLength;
     private bool canMove = true;
     float fracJourney = 0;
+
+    // Arya code
+    private int buttonsPressed = 1;
 
     public enum direction
     {
@@ -272,7 +276,39 @@ public class playerController : MonoBehaviour
         {
             if (Input.GetKey("f"))
             {
-
+                GameObject door = GameObject.Find("door");
+                Destroy(door);
+            }
+        }
+        if (other.tag == "squareButton")
+        {
+            if (Input.GetKey("f"))
+            {
+                if (buttonsPressed == 1)
+                {
+                    buttonsPressed++;
+                }
+            }
+        }
+        if (other.tag == "circleButton")
+        {
+            if (buttonsPressed == 2)
+            {
+                buttonsPressed++;
+            }
+        }
+        if (other.tag == "rectButton")
+        {
+            if (buttonsPressed == 4)
+            {
+                SceneManager.LoadScene("level3", LoadSceneMode.Additive);
+            }
+        }
+        if (other.tag == "ovalButton")
+        {
+            if (buttonsPressed == 3)
+            {
+                buttonsPressed++;
             }
         }
     }
