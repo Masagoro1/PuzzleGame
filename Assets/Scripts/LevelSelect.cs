@@ -13,7 +13,7 @@ using UnityEngine.UI;
 public class Example : MonoBehaviour
 {
     //Make sure to attach these Buttons in the Inspector
-    public Button level, quit, level1, level2, level3;
+    public Button level, quit, level1, level2;
 
     void Start()
     {
@@ -22,7 +22,6 @@ public class Example : MonoBehaviour
         quit.onClick.AddListener(Quit);
         level1.onClick.AddListener(level1Change);
         level2.onClick.AddListener(level2Change);
-        level3.onClick.AddListener(level3Change);
 
     }
 
@@ -33,7 +32,7 @@ public class Example : MonoBehaviour
 
     void level1Change()
     {
-        SceneManager.LoadScene("level1", LoadSceneMode.Additive);
+        SceneManager.LoadScene("ColeScene", LoadSceneMode.Additive);
     }
 
     void level2Change()
@@ -41,16 +40,12 @@ public class Example : MonoBehaviour
         SceneManager.LoadScene("level2", LoadSceneMode.Additive);
     }
 
-    void level3Change()
-    {
-        SceneManager.LoadScene("level3", LoadSceneMode.Additive);
-    }
+
 
     void levelSelector()
     {
         level.gameObject.SetActive(false);
         level1.gameObject.SetActive(true);
         level2.gameObject.SetActive(true);
-        level3.gameObject.SetActive(true);
     }
 }

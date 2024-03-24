@@ -340,7 +340,7 @@ public class playerController : MonoBehaviour
             {
                 if (buttonsPressed == 4)
                 {
-                    SceneManager.LoadScene("level3", LoadSceneMode.Additive);
+                    SceneManager.LoadScene("mountain", LoadSceneMode.Additive);
                 }
             }
         }
