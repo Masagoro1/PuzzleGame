@@ -1,10 +1,11 @@
 Jake's Journey
 
-Credits:
-Cole McKee
-Arya Akahavein
-Shane Hickson
-Christian Cho
+Credits Alphabetically:
+Arya Akahavein,
+Christian Cho,
+Shane Hickson,
+Cole McKee,
+
 
 Lore:
 Jake Yeet, an obvious reference to the popular artist Yeet and not anyone else who attends SFU (Jake Yee), wants to go on a mind-boggling journey!
