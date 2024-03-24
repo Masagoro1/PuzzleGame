@@ -1747,7 +1747,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e2a80ef4dad20a448d1ff8756ac73e3, type: 2}
+  - {fileID: 2100000, guid: 3af4b631f486e304d938b6a449c060f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1952,6 +1952,26 @@ PrefabInstance:
     - target: {fileID: 2928029003669920212, guid: babe14c832a7fcd40a0953fb61fc66a4, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612274252275603788, guid: babe14c832a7fcd40a0953fb61fc66a4, type: 3}
+      propertyPath: m_Height
+      value: 61.416912
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612274252275603788, guid: babe14c832a7fcd40a0953fb61fc66a4, type: 3}
+      propertyPath: m_Radius
+      value: 2.9817593
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612274252275603788, guid: babe14c832a7fcd40a0953fb61fc66a4, type: 3}
+      propertyPath: m_Center.x
+      value: 0.13267708
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612274252275603788, guid: babe14c832a7fcd40a0953fb61fc66a4, type: 3}
+      propertyPath: m_Center.y
+      value: 7.614993
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612274252275603788, guid: babe14c832a7fcd40a0953fb61fc66a4, type: 3}
+      propertyPath: m_Center.z
+      value: -0.9288316
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
