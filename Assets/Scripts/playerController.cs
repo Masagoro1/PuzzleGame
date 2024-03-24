@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 
 public class playerController : MonoBehaviour
@@ -13,6 +14,9 @@ public class playerController : MonoBehaviour
     private float journeyLength;
     private bool canMove = true;
     float fracJourney = 0;
+
+    // Arya code
+    private int buttonsPressed = 1;
 
     public enum direction
     {
@@ -256,5 +260,56 @@ public class playerController : MonoBehaviour
         Debug.Log(canMove);
         yield return new WaitForSeconds(0.5f);
         canMove = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "exitLevel")
+        {
+            SceneManager.LoadScene("level2", LoadSceneMode.Additive);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "buttonStart")
+        {
+            if (Input.GetKey("f"))
+            {
+                GameObject door = GameObject.Find("door");
+                Destroy(door);
+            }
+        }
+        if (other.tag == "squareButton")
+        {
+            if (Input.GetKey("f"))
+            {
+                if (buttonsPressed == 1)
+                {
+                    buttonsPressed++;
+                }
+            }
+        }
+        if (other.tag == "circleButton")
+        {
+            if (buttonsPressed == 2)
+            {
+                buttonsPressed++;
+            }
+        }
+        if (other.tag == "rectButton")
+        {
+            if (buttonsPressed == 4)
+            {
+                SceneManager.LoadScene("level3", LoadSceneMode.Additive);
+            }
+        }
+        if (other.tag == "ovalButton")
+        {
+            if (buttonsPressed == 3)
+            {
+                buttonsPressed++;
+            }
+        }
     }
 }
