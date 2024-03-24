@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 
 public class playerController : MonoBehaviour
@@ -256,5 +256,13 @@ public class playerController : MonoBehaviour
         Debug.Log(canMove);
         yield return new WaitForSeconds(0.5f);
         canMove = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "exitLevel")
+        {
+            SceneManager.LoadScene("level2", LoadSceneMode.Additive);
+        }
     }
 }
