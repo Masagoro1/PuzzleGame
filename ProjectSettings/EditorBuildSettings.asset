@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 018fd244c4d570242941a73e96078ec3
+  - enabled: 1
+    path: Assets/Scenes/ColeScene.unity
+    guid: 1cd52ce29aff1f14f9f7e665017722d3
+  - enabled: 1
+    path: Assets/Scenes/level2.unity
+    guid: 2782bb08707d58b40909f7f9ae4a4419
+  - enabled: 1
+    path: Assets/Scenes/mountain.unity
+    guid: 3569e7994493bef41b491b7e26d37929
   m_configObjects: {}
