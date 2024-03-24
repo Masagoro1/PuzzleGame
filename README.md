@@ -1,4 +1,5 @@
 Jake's Journey
+All assets, code, music, sound effects, ideas, designs created in house
 
 Credits Alphabetically:
 Arya Akahavein,
