@@ -265,4 +265,15 @@ public class playerController : MonoBehaviour
             SceneManager.LoadScene("level2", LoadSceneMode.Additive);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "buttonStart")
+        {
+            if (Input.GetKey("f"))
+            {
+
+            }
+        }
+    }
 }
