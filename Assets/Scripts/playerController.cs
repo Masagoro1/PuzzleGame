@@ -52,7 +52,7 @@ public class playerController : MonoBehaviour
 
         //check which camera is active
         //set currentDirection to correspond to active camera
-        Debug.Log(fracJourney);
+        //Debug.Log(fracJourney);
         if (canMove)
         {
             switch (currentDirection)
