@@ -298,7 +298,7 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "exitLevel")
+        if (other.tag == "endLevel")
         {
             SceneManager.LoadScene("level2", LoadSceneMode.Additive);
         }
