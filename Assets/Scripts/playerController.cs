@@ -18,7 +18,7 @@ public class playerController : MonoBehaviour
     // Arya code
     private int buttonsPressed = 1;
 
-    public enum direction
+    enum direction
     {
         North = 0,
         East = 1,
@@ -27,8 +27,10 @@ public class playerController : MonoBehaviour
         Down = 4
     }
     // Variable to store the current direction
-    public direction currentDirection;
-
+    direction currentDirection;
+    direction currentRotation;
+    public int pubDir;
+    public int pubRot;
     // z-axis is forward and back cardinality
     // North means camera is looking north
 
@@ -45,7 +47,8 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentRotation = (direction)pubRot;
+        currentDirection = (direction)pubDir;
         float distCovered = (Time.time - startTime) * speed;
         //float fracJourney = distCovered / journeyLength;
         startMarker = gameObject.transform.position;
@@ -133,7 +136,7 @@ public class playerController : MonoBehaviour
                     }
                     break;
                 case direction.Down:
-                    if (currentDirection == direction.North)
+                    if (currentRotation == direction.North)
                     {
                         if (Input.GetKey("w"))
                         {
@@ -160,7 +163,7 @@ public class playerController : MonoBehaviour
 
                         }
                     }
-                    else if (currentDirection == direction.East)
+                    else if (currentRotation == direction.East)
                     {
                         if (Input.GetKey("w"))
                         {
@@ -187,7 +190,7 @@ public class playerController : MonoBehaviour
 
                         }
                     }
-                    else if (currentDirection == direction.South)
+                    else if (currentRotation == direction.South)
                     {
                         if (Input.GetKey("w"))
                         {
@@ -214,7 +217,7 @@ public class playerController : MonoBehaviour
 
                         }
                     }
-                    else if (currentDirection == direction.West)
+                    else if (currentRotation == direction.West)
                     {
                         if (Input.GetKey("w"))
                         {

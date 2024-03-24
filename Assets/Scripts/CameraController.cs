@@ -237,7 +237,30 @@ public class CameraController : MonoBehaviour
 
             transform.position = player.position + new Vector3(camDist * Mathf.Cos(t), 0, camDist * Mathf.Sin(t));
         }
-        transform.LookAt(player);
+        if(transform.position == player.position + new Vector3(0, camDist, 0))
+        {
+            switch (currRot)
+            {
+                case (direction.North):
+                    transform.rotation = Quaternion.Euler(90, 0, 0);
+                    break;
+                case (direction.East):
+                    transform.rotation = Quaternion.Euler(90, 90, 0);
+                    break;
+                case (direction.South):
+                    transform.rotation = Quaternion.Euler(90, 180, 0);
+                    break;
+                case (direction.West):
+                    transform.rotation = Quaternion.Euler(90, 270, 0);
+                    break;
+            }
+            
+        }
+        else
+        {
+            transform.LookAt(player);
+        }
+
 
         
     }
@@ -319,7 +342,8 @@ public class CameraController : MonoBehaviour
                     break;
             }
         }
-        
+        player.GetComponent<playerController>().pubDir = (int)currDir;
+        player.GetComponent<playerController>().pubRot = (int)currRot;
         u = 0;
     }
 }
