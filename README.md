@@ -35,9 +35,12 @@ Once in the second room, use the up arrow key to go into the top-down view and y
 You must navigate through the door that has the matching shape as seen on the floor.
 Go through this door and you wil reach the exit
 
-https://drive.google.com/drive/folders/1A0q-qFtyTwNvpN0zTpBW_-IYoYyEtS0P
-
 Level 2:
 Press "f" near buttons. There are four trees with four different shapes on top and roman numerals on the bark. 
 The roman numerals corresponds to which order in the sequence you press the buttons. 
 Ex. Tree with circle on top has "IV" on its bark, so press the button associate with it 4th.
+
+https://drive.google.com/drive/folders/1A0q-qFtyTwNvpN0zTpBW_-IYoYyEtS0P
+
+https://youtu.be/mnDqoTlREWM
+https://youtu.be/0GrwePFlqNM
