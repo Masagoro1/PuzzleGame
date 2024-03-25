@@ -33,7 +33,9 @@ Level 1:
 First, use your arrow keys to rotate to the side and use WASD to navigate through the first door. 
 Once in the second room, use the up arrow key to go into the top-down view and you will see a a green square - this is the hint to the puzzle.
 You must navigate through the door that has the matching shape as seen on the floor.
-Go through this door and you wil reach the exit.
+Go through this door and you wil reach the exit
+
+https://drive.google.com/drive/folders/1A0q-qFtyTwNvpN0zTpBW_-IYoYyEtS0P
 
 Level 2:
 Press "f" near buttons. There are four trees with four different shapes on top and roman numerals on the bark. 
